@@ -1,2 +1,17 @@
-print ("hello world")
-hey this is yash 
+ import pandas as pd
+import matplotlib.pyplot as plt
+
+while(True):
+    print("Main Menu")
+    print("1. Fetch Data")
+    print("2. Dataframe Statistics")
+    print("3. Display Records")
+    print("4. Working on Records")
+    print('5. Working on Columns')
+    print('6. Search specific row/column')
+    print('7. Data  Visualisation')
+    print('8. Data analystics')
+    print('9. Exit')
+    
+if cr==1:
+    crypto=pd.read_csv("C:\\Users\\IT\\Desktop\\crypto.csv")
