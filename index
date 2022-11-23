@@ -1,9 +1,8 @@
- import pandas as pd
-import matplotlib.pyplot as plt
+import pandas as pd
 
 while(True):
     print("Main Menu")
-    print("1. Fetch Data")
+    print("1. Insert Data")
     print("2. Dataframe Statistics")
     print("3. Display Records")
     print("4. Working on Records")
@@ -12,6 +11,67 @@ while(True):
     print('7. Data  Visualisation')
     print('8. Data analystics')
     print('9. Exit')
-    
-if cr==1:
-    crypto=pd.read_csv("C:\\Users\\IT\\Desktop\\crypto.csv")
+    ch=int(input("enter your choice"))
+    if ch==1:     
+       cryp=pd.read_csv("C:\\Users\\IT\\Desktop\\crypto.csv",index_col=0)
+       print(cryp)
+    elif ch==2:
+      while(True):
+        print("Dataframe Statics Menu")
+        print("1.Display the Transpose")
+        print("2.Display all column names")
+        print("3.Display the indexes")
+        print("4.Display the shape")
+        print("5.Display the dimension")
+        print("6.Display the data types of all columns")
+        print("7.Display the size")
+        print("8.exit")
+     
+        ch2=int(input("enter Choice"))
+        if ch2==1:
+           print(cryp.T)
+        elif ch2==2:
+           print(cryp.columns)
+        elif ch2==3:
+           print(cryp.index)
+        elif ch2==4:
+           print(cryp.shape)
+        elif ch2==5:
+           print(cryp.ndim)
+        elif ch2==6:
+           print(cryp.dtypes)
+        elif ch2==7:
+           print(cryp.size)
+        elif ch2==8:
+            break
+    elif ch==4:
+        while(True):
+           print("Working on Records Menu")
+           print("1. Insert a specific crypto detail")
+           print("2. Delete a specific crypto detail")
+           print("3. Update a spcific crypto detail")
+           print("4. Exit")
+           ch4= int(input("enter choice"))
+           if ch4==1:
+              a=int(input("enter a crypto sno"))
+              b=str(input("enter a crypto name"))
+              c=int(input("enter crypto marketcap"))
+              d=int(input("enter total supply of crypto"))
+              e=int(input("enter 52 weeks low"))
+              f=int(input("enter 52 weeks high"))
+              g=int(input("enter day1 price"))
+              h=int(input("enter day2 price"))
+              i=int(input("enter day3 price"))
+              j=int(input("enter week1 price"))
+              k=int(input("enter week2 price"))
+              l=int(input("enter week3 price"))
+              m=int(input("enter month price"))
+            
+              cryp.loc[a]=[b,c,d,e,f,g,h,i,j,k,l,m]
+              print("Data Successfully Inserted")
+           elif ch4==2:
+              a=input('Enter crypto no. whose data need to be deleted')
+              cryp.drop([a],inplace=True)
+              print('Data successfully deleted')       
+           elif ch4==4:
+              break
