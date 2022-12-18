@@ -1,0 +1,299 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+while(True):
+    print("Main Menu")
+    print("1. Insert Data")
+    print("2. Dataframe Statistics")
+    print("3. Display Records")
+    print("4. Working on Records")
+    print('5. Working on Columns')
+    print('6. Search specific row/column')
+    print('7. Data  Visualisation')
+    print('8. Data analystics')
+    print('9. Exit')
+    ch=int(input("enter your choice"))
+    if ch==1:     
+       cryp1=pd.read_csv("C:\\Users\\IT\\Desktop\\crypto.csv",index_col=0)
+       print(cryp1)
+    elif ch==2:
+      while(True):
+        print("Dataframe Statics Menu")
+        print("1.Display the Transpose")
+        print("2.Display all column names")
+        print("3.Display the indexes")
+        print("4.Display the shape")
+        print("5.Display the dimension")
+        print("6.Display the data types of all columns")
+        print("7.Display the size")
+        print("8.exit")
+     
+        ch2=int(input("enter Choice"))
+        if ch2==1:
+           print(cryp1.T)
+        elif ch2==2:
+           print(cryp1.columns)
+        elif ch2==3:
+           print(cryp1.index)
+        elif ch2==4:
+           print(cryp1.shape)
+        elif ch2==5:
+           print(cryp1.ndim)
+        elif ch2==6:
+           print(cryp1.dtypes)
+        elif ch2==7:
+           print(cryp1.size)
+        elif ch2==8:
+           break
+    elif ch==3:
+        while(True):
+          print("Display Records Menu")
+          print("1. Top 5 Crypto Resords")
+          print("2. Bottom 5 Crypto Records")
+          print("3. Specific number of records from the top")
+          print("4. Specific number of records from the bottom")
+          print("5. Display details of all cryptos")
+          print("6. Exit")
+          ch3=int(input("Enter choice"))
+          if ch3==1:
+              print(cryp1.head())
+          elif ch3==2:
+              print(cryp1.tail())
+          elif ch3==3:
+              n=int(input("Enter how many records you want to display from the top"))
+              print(cryp1.head(n))
+          elif ch3==4:
+              n=int(input("Enter how many records you want to display from the bottom"))
+              print(cryp1.tail(n))
+          elif ch3==5:
+              print("crypto detail")
+              print(cryp1)
+          elif ch3==6:
+              break
+    elif ch==4:
+        while(True):
+           print("Working on Records Menu")
+           print("1. Insert a specific crypto detail")
+           print("2. Delete a specific crypto detail")
+           print("3. Update a spcific crypto detail")
+           print("4. Exit")
+           ch4= int(input("enter choice"))
+           if ch4==1:
+              a=int(input("enter a crypto sno"))
+              b=str(input("enter a crypto name"))
+              c=int(input("enter crypto marketcap"))
+              d=int(input("enter volume of crypto"))
+              e=int(input("enter total supply of crypto"))
+              f=int(input("enter 52 weeks low"))
+              g=int(input("enter 52 weeks high"))
+              h=int(input("enter day1 price"))
+              i=int(input("enter day2 price"))
+              j=int(input("enter day3 price"))
+              k=int(input("enter week1 price"))
+              l=int(input("enter week2 price"))
+              m=int(input("enter week3 price"))
+              n=int(input("enter month price"))
+              cryp1=pd.read_csv("C:\\Users\\IT\\Desktop\\crypto.csv",index_col=0)
+              cryp1.loc[a]=[b,c,d,e,f,g,h,i,j,k,l,m,n]
+              print("Data Successfully Inserted")
+           elif ch4==2:
+              a=input('Enter crypto no. whose data need to be deleted')
+              cryp1=pd.read_csv("C:\\Users\\IT\\Desktop\\crypto.csv",index_col=0)
+              cryp1.drop([a],inplace=True)
+              print('Data successfully deleted') 
+           elif ch4==3:
+              a=input("Enter crypto sno whose data needs to be updated")
+              b=str(input("Enter crypto name"))
+              c=int(input("enter crypto marketcap"))
+              d=int(input("enter volume of crypto"))
+              e=int(input("enter total supply of crypto"))
+              f=int(input("enter 52 weeks low"))
+              g=int(input("enter 52 weeks high"))
+              h=int(input("enter day1 price"))
+              i=int(input("enter day2 price"))
+              j=int(input("enter day3 price"))
+              k=int(input("enter week1 price"))
+              l=int(input("enter week2 price"))
+              m=int(input("enter week3 price"))
+              n=int(input("enter month price"))
+              cryp1=pd.read_csv("C:\\Users\\IT\\Desktop\\crypto.csv",index_col=0)
+              cryp1.loc[a]=[b,c,d,e,f,g,h,i,j,k,l,m,n]
+              print("Data successfully updated")
+
+           elif ch4==4:
+              break
+    elif ch==5:
+         while(True):
+              print("Working on Columns Menu")
+              print("1. Insert a new column data")
+              print("2. Delete a specific column")
+              print("3. Exit")
+              ch5=int(input("Enter choice"))
+              if ch5==1:
+                 print("Enter details")
+                 h=input("Enter column/heading name")
+                 det=eval(input("Enter details corresponding to all subject:(enclosed in [ ])"))
+                 result[h]=pd.Series(data=det,index=result.index)
+                 print("Column inserted")
+              elif ch5==2:
+                 a=input("Enter column name which needs to be deleted")
+                 cryp1.drop([a],axis=1,inplace=False)
+                 print("Column Temporary deleted") 
+              elif ch5==3:
+                 break
+    elif ch==6:
+        while(True):
+            print("Search Menu")
+            print("1. Search for the details of a specific subject")
+            print("2. Search details of a specific as per a specific column heading")
+            print("3. Exit")
+            ch6=int(input("Enter choice"))
+            if ch6==1:
+                st=str(input("Enter the name of the subject whose details you want to see"))
+                print(cryp1.loc[st])
+            elif ch6==2:
+               col=input("Enter column/heading name whose details you want to see")
+               print(cryp1[col])
+            elif ch6==3:
+              break
+    elif ch==7:
+        while(True):
+            print("Data Visualization Menu")
+            print("1. Line Plot")
+            print("3. Horizontal Bar Plot")
+            print("4. Histogram")
+            print("5. Exit")
+            ch7=int(input("Enter choice"))
+            if ch7==1:
+                while(True):
+                    print("Line Plot Sub Menu")
+                    print("1. Subject wise Highest marks")
+                    print("2. Subject wise number of students appeared")
+                    print("3. Subject wise Average marks")
+                    print("4. Subject wise comparison of percentage of A1 & A2")
+                    print("5. Exit")
+                    chline=int(input("Enter choice"))
+                    if chline==1:
+                        plt.plot(cryp1.index,cryp1['highest'],label="Highest Marks")
+                        plt.title("SUBJECTWISE HIGHEST MARKS")
+                        plt.xlabel("SUBJECTS")
+                        plt.ylabel("HIGHEST MARKS")
+                        plt.xticks(rotation=30)
+                        plt.legend()
+                        plt.grid(True)
+                        plt.show()
+                    elif chline==2:
+                        plt.plot(cryp1.index,cryp1['appeared'],label="Number of students appeared")
+                        plt.title("SUBJECTWISE NUMBER OF STUDENTS APPEARED")
+                        plt.xlabel("SUBJECTS")
+                        plt.ylabel("NUMBER OF STUDENTS")
+                        plt.xticks(rotation=30)
+                        plt.legend()
+                        plt.grid(True)
+                        plt.show()
+                    elif chline==3:
+                       plt.plot(cryp1.index,cryp1['average'],label="Average Marks obtained")
+                       plt.title("SUBJECT WISE AVERAGE MARKS")
+                       plt.xlabel("SUBJECTS")
+                       plt.ylabel("AVERAGE MARKS")
+                       plt.xticks(rotation=30)
+                       plt.legend()
+                       plt.grid(True)
+                       plt.show()
+                    elif chline==4:
+                        plt.plot(cryp1.index,cryp1['per'],label="Percentage of A1 and A2")
+                        plt.title("SUBJECT WISE PERCENTAGE OF A1 AND A2")
+                        plt.xlabel("SUBJECTS")
+                        plt.ylabel("PERCENTAGE OF A1 AND A2")
+                        plt.xticks(rotation=30)
+                        plt.legend()
+                        plt.grid(True)
+                        plt.show()
+                    elif chline==5:
+                        break
+                    elif ch7==2:
+                        while(True):
+                            print("Vertical Bar Plot Sub Menu")
+                            print("1. Subject wise Highest marks")
+                            print("2. Subject wise number of students appeared")
+                            print("3. Subject wise Average marks")
+                            print("4. Subject wise comparison of percentage of A1 & A2")
+                            print("5. Exit")
+                            chbar=int(input("Enter choice"))
+                            if chbar==1:
+                                plt.bar(cryp1.index,cryp1['highest'],label="Highest Marks", color="green")
+                                plt.title("SUBJECTWISE HIGHEST MARKS")
+                                plt.xlabel("SUBJECTS")
+                                plt.ylabel("HIGHEST MARKS")
+                                plt.xticks(rotation=30)
+                                plt.legend()
+                                plt.grid(True)
+                                plt.show()
+                            elif chbar==2:
+                                plt.bar(cryp1.index,cryp1['appeared'],label="Number of students appeared",color="yellow")
+                                plt.title("SUBJECTWISE NUMBER OF STUDENTS APPEARED")
+                                plt.xlabel("SUBJECTS")
+                                plt.ylabel("NUMBER OF STUDENTS")
+                                plt.xticks(rotation=30)
+                                plt.legend()
+                                plt.grid(True)
+                                plt.show()
+                            elif chbar==3:
+                                plt.bar(cryp1.index,cryp1['average'],label="Average Marks obtained",color="orange")
+                                plt.title("SUBJECT WISE AVERAGE MARKS")
+                                plt.xlabel("SUBJECTS")
+                                plt.ylabel("AVERAGE MARKS")
+                                plt.xticks(rotation=30)
+                                plt.legend()
+                                plt.grid(True)
+                                plt.show()
+                            elif chbar==4:
+                               plt.bar(cryp1.index,cryp1['per'],label="Percentage of A1 and A2",color="green")
+                               plt.title("SUBJECT WISE PERCENTAGE OF A1 AND A2")
+                               plt.xlabel("SUBJECTS")
+                               plt.ylabel("PERCENTAGE OF A1 AND A2")
+                               plt.xticks(rotation=30)
+                               plt.legend()
+                               plt.grid(True)
+                               plt.show()
+                            elif chbar==5:
+                               break
+                            elif ch7==3:
+                               while(True):
+                                     print("Horizontal Bar Plot Sub Menu")
+                                     print("1. Subject wise Highest marks")
+                                     print("2. Subject wise number of students appeared")
+                                     print("3. Subject wise Average marks")
+                                     print("4. Subject wise comparison of percentage of A1 & A2")
+                                     print("5. Exit")
+                                     chbar=int(input("Enter choice"))
+                                     if chbar==1:
+                                         plt.barh(cryp1.index,cryp1['highest'],label="Highest Marks", color="green")
+                                         plt.title("SUBJECTWISE HIGHEST MARKS")
+                                         plt.ylabel("SUBJECTS")
+                                         plt.xlabel("HIGHEST MARKS")
+                                         plt.legend()
+                                         plt.show()
+                                     elif chbar==2:
+                                         plt.barh(cryp1.index,cryp1['appeared'],label="Number of students appeared",color="yellow")
+                                         plt.title("NUMBER OF STUDENTS APPEARED")
+                                         plt.ylabel("SUBJECTS")
+                                         plt.xlabel("NUMBER OF STUDENTS")
+                                         plt.legend()
+                                         plt.show()
+                                     elif chbar==3:
+                                         plt.barh(cryp1.index,cryp1['average'],label="Average Marks obtained",color="orange")
+                                         plt.title("SUBJECT WISE AVERAGE MARKS")
+                                         plt.ylabel("SUBJECTS")
+                                         plt.xlabel("AVERAGE MARKS")
+                                         plt.legend()
+                                         plt.show()
+                                     elif chbar==4:
+                                         plt.barh(cryp1.index,cryp1['per'],label="Percentage of A1 and A2",color="green")
+                                         plt.title("SUBJECT WISE PERCENTAGE OF A1 AND A2")
+                                         plt.ylabel("SUBJECTS")
+                                         plt.xlabel("PERCENTAGE OF A1 AND A2")
+                                         plt.legend()
+                                         plt.show()
+                                     elif chbar==5:
+                                         break
+        
