@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Nov  5 12:10:06 2022
+
+@author: IT
+"""
+
 import pandas as pd
 import matplotlib.pyplot as plt
 while(True):
@@ -169,10 +176,10 @@ while(True):
             if ch7==1:
                 while(True):
                     print("Line Plot Sub Menu")
-                    print("1. rypto wise Highest marks")
-                    print("2. Subject wise number of students appeared")
-                    print("3. Subject wise Average marks")
-                    print("4. Subject wise comparison of percentage of A1 & A2")
+                    print("1. Crypto wise 52weeks high")
+                    print("2. Crypto wise 52 weeks low")
+                    print("3. Crypto wise week1 price")
+                    print("4. Crypto wise month price")
                     print("5. Exit")
                     chline=int(input("Enter choice"))
                     if chline==1:
@@ -216,10 +223,10 @@ while(True):
                     elif ch7==2:
                         while(True):
                             print("Vertical Bar Plot Sub Menu")
-                            print("1. Subject wise Highest marks")
-                            print("2. Subject wise number of students appeared")
-                            print("3. Subject wise Average marks")
-                            print("4. Subject wise comparison of percentage of A1 & A2")
+                            print("1. Crypto wise 52weeks high")
+                            print("2. Crypto wise 52 weeks low")
+                            print("3. Crypto wise week1 price")
+                            print("4. Crypto wise month price")
                             print("5. Exit")
                             chbar=int(input("Enter choice"))
                             if chbar==1:
@@ -262,18 +269,18 @@ while(True):
                                break
                             elif ch7==3:
                                while(True):
-                                     print("Horizontal Bar Plot Sub Menu")
-                                     print("1. Subject wise Highest marks")
-                                     print("2. Subject wise number of students appeared")
-                                     print("3. Subject wise Average marks")
-                                     print("4. Subject wise comparison of percentage of A1 & A2")
+                                     print("Horizontal Bar Plot Menu")
+                                     print("1. Crypto wise 52weeks high")
+                                     print("2. Crypto wise 52 weeks low")
+                                     print("3. Crypto wise week1 price")
+                                     print("4. Crypto wise month price")
                                      print("5. Exit")
                                      chbar=int(input("Enter choice"))
                                      if chbar==1:
                                          plt.barh(cryp1.index,cryp1['highest'],label="Highest Marks", color="green")
-                                         plt.title("SUBJECTWISE HIGHEST MARKS")
-                                         plt.ylabel("SUBJECTS")
-                                         plt.xlabel("HIGHEST MARKS")
+                                         plt.title(" Crypto wise 52weeks high")
+                                         plt.ylabel("CRYPTO")
+                                         plt.xlabel("52 WEEKS HIGH")
                                          plt.legend()
                                          plt.show()
                                      elif chbar==2:
@@ -299,79 +306,75 @@ while(True):
                                          plt.show()
                                      elif chbar==5:
                                          break
-                       elif ch7==4:
-                               while(True):
-                                    print("Histogram Sub Menu [Showing 5 bins] ")
-                                    print("1. Highest marks")
-                                    print("2. Average Marks")
-                                    print("3. Percentagae of A1 and A2")
-                                    print("4. Exit")
-                                    chbar=int(input("Enter choice"))
-                                    if chbar==1:
-                                        plt.hist(result['highest'],bins=5,label="Highest marks", color="green",edgecolor="black")
-                                        plt.title("COUNT OF SUBJECTS FOR DIFFERENT RANGE OF HIGHEST MARKS ")
-                                        plt.xlabel("HIGHEST MARKS")
-                                        plt.ylabel("FREQUENCY")
-                                        plt.legend()
-                                        plt.show()
-                                    elif chbar==2:
-                                        plt.hist(result['average'],bins=5,label="Average Marks",color="yellow",edgecolor="black")
-                                        plt.title("COUNT OF SUBJECTS FOR DIFFERENT RANGE OF AVERAGE MARKS")
-                                        plt.xlabel("AVERAGE MARKS")
-                                        plt.ylabel("FREQUENCY")
-                                        plt.legend()
-                                        plt.show()
- elif chbar==3:
- plt.hist(result['per'],bins=5,label="Percentage of A1 & 
-A2",color="orange",edgecolor="black")
- plt.title("COUNT OF SUBJECTS FOR DIFFERENT RANGE OF PERCENTAGE OF A1 
-& A2")
- plt.xlabel("PERCENTAGE OF A1 and A2")
- plt.ylabel("FREQUENCY")
- plt.legend()
- plt.show()
- elif chbar==4:
- break
- elif ch7==5:
- break
- elif ch==8:
- while(True):
- print("Data Analytics Menu")
- print("1. Subject with maximum average marks")
- print("2. Subject with minimum average marks")
- print("3. Subject with maximum highest marks")
- print("4. Subject with minimum highest marks")
- print("5. Subject with maximum percentage of A1 and A2")
- print("6. Subject with minimum percentage of A1 and A2")
- print("7. Exit")
- chana=int(input("Enter choice:"))
- if chana==1:
- m=result['average'].max()
- s=result.loc[result.average==m]
- print("Subject with maximum average marks of ",m," is\n ",s.index)
- elif chana==2:
- m=result['average'].min()
- s=result.loc[result.average==m]
- print("Subject with minimum average marks of ",m," is\n ",s.index)
- elif chana==3:
- m=result['highest'].max()
- s=result.loc[result.highest==m]
- print("Subject with maximum highest marks of ",m," is\n ",s.index)
- elif chana==4:
- m=result['highest'].min()
- s=result.loc[result.highest==m]
- print("Subject with minimum highest marks of ",m," is\n ",s.index)
- elif chana==5:
- m=result['per'].max()
- s=result.loc[result.per==m]
- print("Subject with maximum percentage of A1 and A2",s.index,"\n Percentage 
- being",m)
- elif chana==6:
- m=result['per'].min()
- s=result.loc[result.per==m]
- print("Subject with minimum percentage of A1 and A2",s.index,"\n Percentage 
- being",m)
- elif chana==7:
- break
- elif ch==9:
- break
+                                     elif ch7==4:
+                                               while(True):
+                                                    print("Histogram Sub Menu [Showing 5 bins] ")
+                                                    print("1. Highest marks")
+                                                    print("2. Average Marks")
+                                                    print("3. Percentagae of A1 and A2")
+                                                    print("4. Exit")
+                                                    chbar=int(input("Enter choice"))
+                                                    if chbar==1:
+                                                        plt.hist(cryp1['highest'],bins=5,label="Highest marks", color="green",edgecolor="black")
+                                                        plt.title("COUNT OF SUBJECTS FOR DIFFERENT RANGE OF HIGHEST MARKS ")
+                                                        plt.xlabel("HIGHEST MARKS")
+                                                        plt.ylabel("FREQUENCY")
+                                                        plt.legend()
+                                                        plt.show()
+                                                    elif chbar==2:
+                                                        plt.hist(cryp1['average'],bins=5,label="Average Marks",color="yellow",edgecolor="black")
+                                                        plt.title("COUNT OF SUBJECTS FOR DIFFERENT RANGE OF AVERAGE MARKS")
+                                                        plt.xlabel("AVERAGE MARKS")
+                                                        plt.ylabel("FREQUENCY")
+                                                        plt.legend()
+                                                        plt.show()
+                                                    elif chbar==3:
+                                                        plt.hist(cryp1['per'],bins=5,label="Percentage of A1 & A2",color="orange",edgecolor="black")
+                                                        plt.title("COUNT OF SUBJECTS FOR DIFFERENT RANGE OF PERCENTAGE OF A1 & A2")
+                                                        plt.xlabel("PERCENTAGE OF A1 and A2")
+                                                        plt.ylabel("FREQUENCY")
+                                                        plt.legend()
+                                                        plt.show()
+                                                    elif chbar==4:
+                                                        break
+                                                    elif ch7==5:
+                                                        break
+    elif ch==8:
+        while(True):
+            print("Data Analytics Menu")
+            print("1. Subject with maximum average marks")
+            print("2. Subject with minimum average marks")
+            print("3. Subject with maximum highest marks")
+            print("4. Subject with minimum highest marks")
+            print("5. Subject with maximum percentage of A1 and A2")
+            print("6. Subject with minimum percentage of A1 and A2")
+            print("7. Exit")
+            chana=int(input("Enter choice:"))
+            if chana==1:
+                 m=cryp1['average'].max()
+                 s=cryp1.loc[cryp1.average==m]
+                 print("Subject with maximum average marks of ",m," is\n ",s.index)
+            elif chana==2:
+                 m=cryp1['average'].min()
+                 s=cryp1.loc[cryp1.average==m]
+                 print("Subject with minimum average marks of ",m," is\n ",s.index)
+            elif chana==3:
+                 m=cryp1['highest'].max()
+                 s=cryp1.loc[cryp1.highest==m]
+                 print("Subject with maximum highest marks of ",m," is\n ",s.index)
+            elif chana==4:
+                 m=cryp1['highest'].min()
+                 s=cryp1.loc[cryp1.highest==m]
+                 print("Subject with minimum highest marks of ",m," is\n ",s.index)
+            elif chana==5:
+                 m=cryp1['per'].max()
+                 s=cryp1.loc[cryp1.per==m]
+                 print("Subject with maximum percentage of A1 and A2",s.index,"\n Percentage being",m)
+            elif chana==6:
+                 m=cryp1['per'].min()
+                 s=cryp1.loc[cryp1.per==m]
+                 print("Subject with minimum percentage of A1 and A2",s.index,"\n Percentage being",m)
+            elif chana==7:
+                 break
+    elif ch==9:
+        break
